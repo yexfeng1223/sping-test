@@ -12,7 +12,12 @@ public class Main {
         ArithmeticCalculator arithmeticCalculator=ctx.getBean(ArithmeticCalculator.class);
 
         int result= arithmeticCalculator.add(1,2);
+        System.out.println("--->"+result);
 
+        result= arithmeticCalculator.sub(1,2);
+        System.out.println("--->"+result);
+
+        result= arithmeticCalculator.div(6,0);
         System.out.println("--->"+result);
     }
 }
