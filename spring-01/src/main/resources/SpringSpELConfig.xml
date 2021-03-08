@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address" class="com.gsoft.SpEL.Address">
+        <property name="city" value="#{'BeiJing'}" ></property>
+        <property name="street" value="WuDaoKou"></property>
+    </bean>
+
+    <bean id="car" class="com.gsoft.SpEL.Car">
+        <property name="brand" value="Audi"></property>
+        <property name="price" value="500000"></property>
+        <property name="typrePermeter" value="#{T(java.lang.Math).PI*80}"></property>
+
+    </bean>
+
+    <bean id="helloWorld" class="com.gsoft.SpEL.HelloWorld" init-method="init" destroy-method="destroy">
+        <property name="name" value="yefeng"></property>
+        <property name="city" value="#{address.city}"></property>
+        <property name="car" value="#{car}"></property>
+        <property name="info" value="#{car.price>100000?'金领':'白领'}"></property>
+
+    </bean>
+
+    <bean class="com.gsoft.SpEL.MyBeanPostProcessor"></bean>
+
+    <!--     静态工厂方法 -->
+    <bean class="com.gsoft.SpEL.StaticFactory" id="car1" factory-method="getCar" >
+        <constructor-arg name="carName" value="Audi"></constructor-arg>
+    </bean>
+
+    <!--     实例工厂方法 -->
+    <bean class="com.gsoft.SpEL.InstanceFactory" id="carInstance">  </bean>
+
+    <bean id="car2" factory-bean="carInstance" factory-method="getCar" >
+        <constructor-arg value="Audi" ></constructor-arg>
+    </bean>
+
+    <bean id="carFactoryBean" class="com.gsoft.SpEL.CarFactoryBean"></bean>
+
+
+</beans>

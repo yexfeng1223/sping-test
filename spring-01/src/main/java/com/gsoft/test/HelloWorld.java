@@ -1,4 +1,4 @@
-package com.gsoft;
+package com.gsoft.test;
 
 
 import java.util.List;

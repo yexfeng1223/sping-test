@@ -1,24 +1,49 @@
 package com.gsoft;
 
+import com.gsoft.SpEL.Address;
+
+import com.gsoft.SpEL.Car;
+import com.gsoft.SpEL.HelloWorld;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import javax.sql.DataSource;
+
 import java.sql.SQLException;
 
 public class Main {
 
     public static void main(String[] args) throws SQLException {
-        ApplicationContext context= new  ClassPathXmlApplicationContext("HelloWorldConfig.xml");
-        HelloWorld hd=(HelloWorld) context.getBean("helloWorld");
-        hd.hello();
+        ClassPathXmlApplicationContext context= new  ClassPathXmlApplicationContext("SpringSpELConfig.xml");
 
-        HelloWorld hd2=(HelloWorld) context.getBean("helloWorld");
-        hd2.hello();
-        HelloWorld hd3=(HelloWorld) context.getBean("helloWorld");
-        hd3.hello();
+            Car car3=(Car)context.getBean("carFactoryBean");
+        System.out.println("factory bean ....."+car3);
 
-        DataSource dataSource=(DataSource)context.getBean("datasource1");
-        System.out.println(dataSource.getConnection());
+
+//            Car car2=(Car)context.getBean("car2");
+//        System.out.println("instance factory...."+car2);
+
+
+//        Car car1=(Car)context.getBean("car1");
+//        System.out.println("static factory ...."+car1);
+
+//
+//        Address address=(Address) context.getBean("address");
+//        System.out.println(address);
+//
+//        Car car=(Car) context.getBean("car");
+//        System.out.println(car);
+//
+//        HelloWorld helloWorld =(HelloWorld)context.getBean("helloWorld");
+//        System.out.println(helloWorld.toString());
+        context.close();
+//        HelloWorld hd2=(HelloWorld) context.getBean("helloWorld");
+//        hd2.hello();
+//        HelloWorld hd3=(HelloWorld) context.getBean("helloWorld");
+//        hd3.hello();
+//
+//        DataSource dataSource=(DataSource)context.getBean("datasource1");
+//        System.out.println(dataSource.getConnection());
+
+
     }
 
 }

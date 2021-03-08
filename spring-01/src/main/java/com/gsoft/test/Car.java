@@ -1,4 +1,4 @@
-package com.gsoft;
+package com.gsoft.test;
 
 public class Car {
     private String name;
