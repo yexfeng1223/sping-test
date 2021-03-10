@@ -1,4 +1,4 @@
-package com.gsoft.Generic;
+package com.gsoft.generic;
 
 public class BaseRepository<T> {
 }

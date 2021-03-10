@@ -1,4 +1,4 @@
-package com.gsoft.Generic;
+package com.gsoft.generic;
 
 import org.springframework.stereotype.Service;
 
