@@ -8,7 +8,7 @@ public class HelloWorld {
 
 
     public HelloWorld() {
-        System.out.println("构造函数....");
+        System.out.println("构造函数..HelloWorld..");
     }
 
     public void  init(){

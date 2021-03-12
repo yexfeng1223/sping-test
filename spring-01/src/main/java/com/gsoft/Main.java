@@ -14,10 +14,10 @@ public class Main {
     public static void main(String[] args) throws SQLException {
         ClassPathXmlApplicationContext context= new  ClassPathXmlApplicationContext("SpringSpELConfig.xml");
 
-            Car car3=(Car)context.getBean("carFactoryBean");
-        System.out.println("factory bean ....."+car3);
+//            Car car3=(Car)context.getBean("carFactoryBean");
+//        System.out.println("factory bean ....."+car3);
 
-
+//
 //            Car car2=(Car)context.getBean("car2");
 //        System.out.println("instance factory...."+car2);
 
@@ -32,8 +32,13 @@ public class Main {
 //        Car car=(Car) context.getBean("car");
 //        System.out.println(car);
 //
-//        HelloWorld helloWorld =(HelloWorld)context.getBean("helloWorld");
-//        System.out.println(helloWorld.toString());
+        HelloWorld helloWorld =(HelloWorld)context.getBean("helloWorld");
+        HelloWorld helloWorld2 =(HelloWorld)context.getBean("helloWorld");
+        helloWorld2.setInfo("AAAA");
+
+        System.out.println(helloWorld);
+        System.out.println(helloWorld2);
+        System.out.println(helloWorld==helloWorld2);
         context.close();
 //        HelloWorld hd2=(HelloWorld) context.getBean("helloWorld");
 //        hd2.hello();

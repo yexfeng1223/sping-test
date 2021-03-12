@@ -5,6 +5,7 @@ public class Address {
     private String street;
 
     public Address() {
+        System.out.println("构造函数 Address");
     }
 
     public Address(String city, String street) {

@@ -7,7 +7,7 @@
 
 <!--    <bean id="helloWorld1" parent="helloWorld" p:name="yeyihang" scope="prototype" ></bean>-->
 
-    <bean id="helloWorld" class="com.gsoft.SpringOne.HelloWorld" p:name="yefeng" scope="singleton">
+    <bean id="helloWorld" class="com.gsoft.SpringOne.HelloWorld"  p:name="yefeng" scope="singleton">
         <property name="address" value="china"></property>
         <property name="car" ref="car"></property>
 

@@ -6,7 +6,18 @@ public class Car {
     private double typrePermeter;
 
     public Car() {
+        System.out.println("构造函数 car");
     }
+
+    public void destroy(){
+        System.out.println("Car destroy().....");
+    }
+
+    public void  init(){
+        System.out.println("Car init() .....");
+
+    }
+
 
     public Car(String brand, double price, double typrePermeter) {
         this.brand = brand;
