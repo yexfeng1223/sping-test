@@ -30,10 +30,6 @@
            <version>5.0.10.RELEASE</version>
        </dependency>
 
-
-
-
-
        <dependency>
            <groupId>com.mchange</groupId>
            <artifactId>c3p0</artifactId>
@@ -45,9 +41,6 @@
            <artifactId>mysql-connector-java</artifactId>
            <version>8.0.22</version>
        </dependency>
-
-
-
 
        <dependency>
            <groupId>org.aspectj</groupId>

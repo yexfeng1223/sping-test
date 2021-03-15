@@ -24,7 +24,6 @@ public class BookShopDaoImpl implements  BookShopDao {
 
     @Override
     public void updateBookStore(String isBn) {
-
             String sql = "select stock from book_store where isbn=?";
             int stock = jdbcTemplate.queryForObject(sql, Integer.class, isBn);
             if (stock <= 0) {
@@ -33,6 +32,8 @@ public class BookShopDaoImpl implements  BookShopDao {
 
             sql = "update book_store set stock=stock-1 where isBn=?";
             jdbcTemplate.update(sql, isBn);
+
+
 
     }
 
