@@ -17,17 +17,16 @@ public class BookShopServiceImpl implements BookShopService {
 
 
 
-    @Transactional(propagation= Propagation.REQUIRES_NEW,
-            isolation= Isolation.READ_COMMITTED,
-            readOnly=false,
-            timeout=3)
+    @Transactional
     @Override
     public void purechase(String username, String isBn) {
 
       int price=  bookShopDao.findBookPriceByIsBn(isBn);
 
-      bookShopDao.updateBookStore(isBn);
+        bookShopDao.updateUserAccount(username,price);
 
-      bookShopDao.updateUserAccount(username,price);
+
+        bookShopDao.updateBookStore(isBn);
+
     }
 }

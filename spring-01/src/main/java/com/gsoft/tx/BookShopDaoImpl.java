@@ -24,22 +24,24 @@ public class BookShopDaoImpl implements  BookShopDao {
 
     @Override
     public void updateBookStore(String isBn) {
-        String sql="select stock from book_store where isbn=?";
-        int stock=jdbcTemplate.queryForObject(sql,Integer.class,isBn);
-        if(stock<=0){
-            throw new BookStoreException("-----余额不足！！！！！");
-        }
 
-        sql="update book_store set stock=stock-1 where isBn=?";
-        jdbcTemplate.update(sql,isBn);
+            String sql = "select stock from book_store where isbn=?";
+            int stock = jdbcTemplate.queryForObject(sql, Integer.class, isBn);
+            if (stock <= 0) {
+                throw new BookStoreException("-----库存不足！！！！！");
+            }
+
+            sql = "update book_store set stock=stock-1 where isBn=?";
+            jdbcTemplate.update(sql, isBn);
+
     }
 
     @Override
     public void updateUserAccount(String username, int price) {
         String sql="select balance from account where username=?";
         int balance=jdbcTemplate.queryForObject(sql,Integer.class,username);
-        if(balance<=price){
-            throw new UserAccountException("-----库存不足！！！！！");
+        if(balance<price){
+            throw new UserAccountException("-----余额不足！！！！！");
         }
 
          sql="update account set balance=balance-? where username=?";
