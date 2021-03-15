@@ -3,6 +3,7 @@ package com.gsoft.aop;
 public class ArithemeticCalculatorImpl implements ArithmeticCalculator {
     @Override
     public int add(int i, int j) {
+
         int resule=i+j;
         return resule;
     }
