@@ -30,11 +30,22 @@ public class BookShopServiceImpl implements BookShopService {
 //			isolation=Isolation.READ_COMMITTED,
 //			noRollbackFor={UserAccountException.class})
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional(propagation = Propagation.REQUIRES_NEW,
+                    isolation =Isolation.READ_COMMITTED,
+                 //   noRollbackFor = {BookStoreException.class},
+                    readOnly = false,
+                    timeout = 2//事务超过时间就回滚
+                    )
     @Override
     public void purechase(String username, String isBn) {
 
-      int price=  bookShopDao.findBookPriceByIsBn(isBn);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        int price=  bookShopDao.findBookPriceByIsBn(isBn);
 
         bookShopDao.updateUserAccount(username,price);
 
